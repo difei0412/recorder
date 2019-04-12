@@ -18,7 +18,7 @@ var oDiv = document.getElementById('box'),
     recorder = null;
 
 function startRecord() {
-    if (!recorder) {
+    if (!recorder) { // 第一次实例化对象
         recorder = new Recorder();
         recorder.ready().then(() => {
             recorder.start();
@@ -31,6 +31,7 @@ function endRecord (e) {
     recorder.stop();
 }
 function transRecord (e) {
+    // 转为PCM格式的Blob对象
     let pcm = recorder.getPCMBlob(),
         formdata = new FormData();
 
